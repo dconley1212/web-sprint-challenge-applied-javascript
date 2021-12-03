@@ -62,6 +62,32 @@ const cardAppender = (selector) => {
     .get("http://localhost:5000/api/articles")
     .then((resp) => {
       console.log(resp);
+
+      resp.data.articles.javascript.forEach((article) => {
+        const javascriptCard = Card(article);
+        const appendingElement = document.querySelector(selector);
+        appendingElement.appendChild(javascriptCard);
+      });
+      resp.data.articles.bootstrap.forEach((article) => {
+        const bootstrapCard = Card(article);
+        const appendingElement = document.querySelector(selector);
+        appendingElement.appendChild(bootstrapCard);
+      });
+      resp.data.articles.technology.forEach((article) => {
+        const technologyCard = Card(article);
+        const appendingElement = document.querySelector(selector);
+        appendingElement.appendChild(technologyCard);
+      });
+      resp.data.articles.jquery.forEach((article) => {
+        const jqueryCard = Card(article);
+        const appendingElement = document.querySelector(selector);
+        appendingElement.appendChild(jqueryCard);
+      });
+      resp.data.articles.node.forEach((article) => {
+        const nodeCard = Card(article);
+        const appendingElement = document.querySelector(selector);
+        appendingElement.appendChild(nodeCard);
+      });
     })
     .catch((error) => {
       console.log(error);
